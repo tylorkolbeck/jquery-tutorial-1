@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>JQuery / Javascript</title>
+  </head>
+
+  <body>
+    <div class="container">
+
+      <div class="some-block">Block 1</div>
+      <div class="some-block">Block 2</div>
+      <div class="some-block">Block 3</div>
+      <div class="some-block">Block 4</div>
+      <div class="some-block">Block 5</div>
+
+      <div id="test-element"></div>
+
+      <!-- IMPORT JQUERY -->
+      <script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"
+      ></script>
+
+      <script type="text/javascript">
+
+      /**
+      * HOW DO WE USE JQUERY?
+      */
+
+      /**
+      *  To use jquery we are just calling a function.  It is a regular function call, no magic.  Jquery just happend to name
+      * their function "$" 
+      * $() 
+      */
+
+      // Here we could make an alias to the jquery function if we wanted basically renaming it to "jquery" and instead of using "$". So we could use jquery().
+      let jquery = $
+
+      // We can prove that "$" is just a function by console logging it
+      console.log("What the heck is '$' ?!?!?! ")
+      console.log('typeof $', typeof $)
+      console.log("--------")
+
+
+      /**
+      * What is the difference between using Jquery and vanilla javascript()
+      */
+      
+      /** Look at this in the console.  The vanilla javascript way of grabbing 
+      * an element with getElementById() returns an element. We do not have access to jquery methods because it is just a DOM element. All we have access to are vanilla javascript 
+      * properties and methods, like getElementById("test-element").innerText = "New Text"
+      */ 
+      console.log('VANILLA JAVASCRIPT TEST ELEMENT: \n', document.getElementById('test-element'))
+      console.log("--------")
+
+
+      /** With Jquery it uses the vanilla javascript getElementById() under the hood,
+      * but it puts the returned element into its own jquery object. 
+      * Now we are able to access all the methods and properties that jquery offers to access the element. Look at the console for the example below, expand the object 
+      * and then expand "__proto__".  It is not important to know exactly what __proto__ is yet, but just know that everything you see listed there 
+      * are methods that are now attached to the element that we just grabbed with jquery.  For example, each(), val(), attr() etc.
+      */ 
+      console.log('JQUERY TEST ELEMENT: \n', $('#test-element'))
+      console.log("--------")
+
+
+      /**
+      * Jquery(this) and javascript "this"
+      */
+
+
+      // grab all the blocks with class .some-block
+      let blocks = $('.some-block')
+
+      // Look at this in the console and notice that our jquery object holds an 
+      // array of all the elements that we just grabbed
+      console.log('SOME BLOCK: \n', blocks)
+
+
+      /** Because we have an array of jquery elements we can use jquery's looping method
+      * which is named .each(). The method each() has multiple ways to be used so take a look at the documentation
+      * if you see somebody else using something different and you dont know why.  Each way of using "each()" is basically 
+      * the same with some minor differences. But each() takes a function as a parameter.  
+      */
+    
+
+      /** #1 The Jquery "this" can get confusing.  The most common mistake is thinking that
+      * $(this) and vanilla javascript "this" are the same. We will use jquerys each() below to look at "this"
+      */
+      console.log("#1 VANILLA JS THIS: \n")
+
+      blocks.each(function() {
+        console.log(this) // logs an element
+      })
+
+      console.log("--------")
+
+
+
+      /** #2 - With jquery "this" we pass the vanilla javascript "this" to jquery to make the element a jquery element. 
+      * We do this once for each element in the array
+      */ 
+      console.log("#2 JQUERY THIS: \n")
+
+      blocks.each(function() {
+        console.log($(this)) // this points to each element, passing "this" tp jquery(this) turns each element into a jquery object
+      })
+
+      console.log("--------")
+
+
+      /** In the above example(#1) the vanilla JS this points to the element as it loops with "this"
+      * in #2 jquery(this) is just passing that element to jquery to turn it into a jquery object
+      * So, using jquery(this) we now have access to the jquery methods on each element
+      */ 
+
+      /** giving this to jquery ike so jquery(this) is the basically do the same thing that we are doing
+      * at the beginning of this whole thing when we say jquery('#test-element').
+      */ 
+
+
+
+      /** END
+      * Hopefully this clears up some confusion that you may have had when it comes to the diffrence 
+      * between using vanilla javascript to grab elements and using jquery to grab elements.
+      * and what jquery provides us as far as methods when we pass elements to jquery or grab elements with jquery
+      */
+      
+      </script>
+    </div>
+  </body>
+</html>
