@@ -1,8 +1,8 @@
-## What The Heck Is Jquery Doing?!
+## What The Heck Is jQuery Doing?!
 
 This work sheet will hopefully clear up some confusion 
-when using Jquery. Specifically the differences between 
-"this" and Jquery's $(this)
+when using jQuery. Specifically the differences between 
+"this" and jQuery's $(this)
 
 ## To Run
 Just download the repo and run in you local browser
