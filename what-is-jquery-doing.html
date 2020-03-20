@@ -35,7 +35,9 @@
       * $() 
       */
 
-      // Here we could make an alias to the jQuery function if we wanted.  Basically this is just renaming it to "jquery" so instead of using $() we could use jquery().
+      /** Here we could make an alias to the jQuery function if we wanted.  Basically this is just renaming it to 
+      * "jquery" so instead of using $() we could use jquery().
+      */
       let jquery = $
       // jquery()
 
@@ -60,8 +62,10 @@
 
       /** With jQuery it uses the vanilla javascript getElementById() under the hood,
       * but it puts the returned element into its own jQuery object. 
-      * Now we are able to access all the methods and properties that jQuery offers us to use on the jQuery element. Look at the console for the example below, expand the object 
-      * and then expand "__proto__".  It is not important to know exactly what __proto__ is yet, but just know that everything you see listed there 
+      * Now we are able to access all the methods and properties that jQuery offers us to use on the jQuery element. 
+      * Look at the console for the example below, expand the object 
+      * and then expand "__proto__".  It is not important to know exactly what __proto__ is yet, 
+      * but just know that everything you see listed there 
       * are methods that are now attached to the element that we just grabbed with jQuery.  For example, each(), val(), attr() etc.
       */ 
       console.log('JQUERY TEST ELEMENT: \n', $('#test-element'))
